@@ -25,6 +25,7 @@ os.chdir("./build")
 
 os.system('cmake ..')
 os.system('cmake --build .')
-os.system('./Tutorial 3')
+# os.system('make install .')
+# os.system('./Tutorial 3')
 
 
