@@ -2,6 +2,10 @@
 
 import os,sys,shutil
 
+if not os.path.exists(os.getcwd() + "/build"):
+    os.makedirs(os.getcwd() + "/build")
+
+
 print("当前列表为:", os.listdir(os.getcwd() + "/build"))
 
 CUR_PATH = os.getcwd() + "/build"
