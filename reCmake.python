@@ -4,10 +4,6 @@
 
 import os,sys,shutil
 
-if not os.path.exists(os.getcwd() + "/build"):
-    os.makedirs(os.getcwd() + "/build")
-
-print("当前列表为:", os.listdir(os.getcwd() + "/build"))
 
 CUR_PATH = os.getcwd() + "/build"
 def del_file(path):
@@ -22,15 +18,24 @@ def del_file(path):
             print("delete file...",c_path)
             os.remove(c_path)
 
-del_file(CUR_PATH)
+def cleanBuild():
+    # print(sys.path[0])
+    if os.path.exists(sys.path[0]+'/build'):
+        shutil.rmtree(sys.path[0]+'/build')
+        print('build dir deleted...')
+    if not os.path.exists('build'):
+        os.system('mkdir build')
+        print("create new build dir")
 
-# print(os.getcwd())
+
+cleanBuild()
 os.chdir("./build")
-# print(os.getcwd())
+print("get into build directory...")
 
 os.system('cmake ..')
 os.system('cmake --build .')
 # os.system('make install .')
 os.system('./Tutorial 3')
+
 
 
